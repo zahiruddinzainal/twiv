@@ -1,70 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:twiv/contact/contact_list.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Trinity Wizard IV',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Trinity Wizard IV'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        primaryColor: Color(0xFFFF8C00),
+        appBarTheme: AppBarTheme(
+          color: Color(0xFFFF8C00),
         ),
+        textSelectionTheme: TextSelectionThemeData(
+          selectionColor: Colors.grey,
+          cursorColor: Color(0xff171d49),
+          selectionHandleColor: Color(0xff005e91),
+        ),
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
+        highlightColor: Colors.white,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Color(0xFFFF8C00),
+            focusColor: Color(0xFFFF8C00),
+            splashColor: Color(0xFFFF8C00)),
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
+      home: ContactList()));
 }
